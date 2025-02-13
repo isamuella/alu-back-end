@@ -1,7 +1,10 @@
 #!/usr/bin/python3
+"""
+Request from API; return todo list of an employee using his ID
+"""
 import requests
 import sys
-"""Display employees to do"""
+
 def get_todo_progress(employee_id):
     base_url = "https://jsonplaceholder.typicode.com"
     user_url = f"{base_url}/users/{employee_id}"
