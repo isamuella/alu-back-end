@@ -2,7 +2,7 @@
 """
 Request from API; return todo list of an employee using his ID
 """
-import csv
+import json
 import requests
 import sys
 
@@ -29,14 +29,20 @@ def get_todo_lists(employee_id):
     todo_data = todo_response.json()
 
     """Make a JSON file"""
-    task_list = [{"task": task["title"], "completed": task["completed"],
-    "username": employee_username} for task in todo_data]
+    task_list = [
+        {
+           "task": task["title"],
+           "completed": task["completed"],
+           "username": employee_username
+        }
+        for task in todo_data
+    ]
     task_dic = {str(employee_id): task_list}
 
     """ Export to JSON """
     file_name = f"{employee_id}.json"
     with open(file_name, mode="w") as json_file:
-        json.dump(task_dict, json_file)
+        json.dump(task_dic, json_file)
 
     print(f"Data has been exported to {file_name}")
 
