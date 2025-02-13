@@ -20,6 +20,7 @@ def get_todo_lists(employee_id):
 
     user_data = user_response.json()
     employee_name = user_data.get("name")
+    employee_username = user_data.get("username")
 
     """ Fetch the todo list data """
     todo_response = requests.get(todo_url)
