@@ -2,7 +2,7 @@
 """
 Request from API; return todo list of an employee using his ID
 """
-import requests # type: ignore
+import requests
 import sys
 
 
@@ -30,7 +30,8 @@ def get_todo_lists(employee_id):
     total_tasks = len(todo_data)
     done_tasks = [task for task in todo_data if task.get("completed")]
 
-    print(f"Employee {employee_name} is done with tasks({len(done_tasks)}/{total_tasks}):")
+    print(f"Employee {employee_name} is done with tasks("
+          f"{len(done_tasks)}/{total_tasks}):")
     for task in done_tasks:
         print(f"\t {task.get('title')}")
 
