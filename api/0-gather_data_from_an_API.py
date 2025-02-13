@@ -5,6 +5,7 @@ Request from API; return todo list of an employee using his ID
 import requests
 import sys
 
+
 def get_todo_progress(employee_id):
     base_url = "https://jsonplaceholder.typicode.com"
     user_url = f"{base_url}/users/{employee_id}"
@@ -34,7 +35,11 @@ def get_todo_progress(employee_id):
         print(f"\t {task.get('title')}")
 
 if __name__ == "__main__":
-    if len(argv) > 1:
-        main(argv[1])
+    if len(sys.argv) != 2:
+        print("Usage: python3 0-gather_data_from_an_API.py <employee_id>")
     else:
-        print("Usage: ./0-gather_data_from_an_API.py <employee_id>")
+        try:
+            employee_id = int(sys.argv[1])
+            get_todo_progress(employee_id)
+        except ValueError:
+            print("Error: Employee ID must be an integer")
