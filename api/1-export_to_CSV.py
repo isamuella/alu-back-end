@@ -40,7 +40,6 @@ def get_todo_lists(employee_id):
 
     print(f"Data has been exported to {file_name}")
 
-
     print(f"Employee {employee_name} is done with tasks("
           f"{len(done_tasks)}/{total_tasks}):")
     for task in done_tasks:
